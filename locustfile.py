@@ -5,7 +5,8 @@ class UserTasks(TaskSet):
 
     @task
     def index(self):
-        self.client.get("/")
+        response = self.client.get("/")
+        print("Response content:", response.text)
 
     @task
     def stats(self):
@@ -14,3 +15,5 @@ class UserTasks(TaskSet):
 
 class WebsiteUser(HttpLocust):
     task_set = UserTasks
+    min_wait = 5000
+    max_wait = 15000
