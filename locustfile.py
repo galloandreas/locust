@@ -8,10 +8,6 @@ class UserTasks(TaskSet):
         response = self.client.get("/")
         print("Response content:", response.text)
 
-    @task
-    def stats(self):
-        self.client.get("/stats/requests")
-
 
 class WebsiteUser(HttpLocust):
     task_set = UserTasks
